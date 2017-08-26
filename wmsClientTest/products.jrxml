@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AircraftReportColumnIndex" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="6e843fe2-ce72-4257-a4c3-1df03728dc95">
+	<property name="ireport.zoom" value="1.2418426461183103"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="434"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#999999"/>
+			<bottomPen lineWidth="1.0" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFE8BF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#999999"/>
+			<bottomPen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFF6E6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#999999"/>
+			<bottomPen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#999999"/>
+			<bottomPen lineWidth="0.5" lineColor="#999999"/>
+		</box>
+	</style>
+	<subDataset name="DataOne" whenResourceMissingType="Empty" uuid="1640c5ca-812b-421f-927b-e910615bfe82">
+		<parameter name="parameter" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+		<parameter name="parameter2" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+			<defaultValueExpression><![CDATA[$P{parameter}]]></defaultValueExpression>
+		</parameter>
+		<field name="idproduct" class="java.lang.Integer"/>
+		<field name="name" class="java.lang.String"/>
+		<field name="type" class="java.lang.String"/>
+		<field name="measure" class="java.lang.String"/>
+		<field name="code" class="java.lang.String"/>
+		<field name="count" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="Countries" uuid="ed1ec98d-7bac-4984-8f26-a937a529b564">
+		<field name="name" class="java.lang.String"/>
+		<field name="count" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="Workers" uuid="f03752b1-7bfe-4c3a-902d-29684d954782">
+		<field name="date" class="java.lang.String"/>
+		<field name="firstname" class="java.lang.String"/>
+		<field name="count" class="java.lang.Integer"/>
+		<field name="position" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="zones" uuid="e3bcfe35-541c-4333-a6a5-6a98e0acefc7">
+		<field name="name" class="java.lang.String"/>
+		<field name="count" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="WorkersForOperations" uuid="ed1728b1-c92c-4d1c-a87a-c71a201c6926">
+		<field name="firstname" class="java.lang.String"/>
+		<field name="date" class="java.lang.String"/>
+		<field name="count" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="products" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="countries" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="workers" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="area" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="zones" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<parameter name="positions" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource" isForPrompting="false"/>
+	<title>
+		<band height="15" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="138" splitType="Stretch">
+			<image>
+				<reportElement x="25" y="0" width="409" height="128" uuid="a86e592d-0f82-407f-9ac7-1c8deb1dff31"/>
+				<imageExpression><![CDATA["C:\\Users\\Sizon\\Desktop\\a-d-3283.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="224" y="17" width="284" height="36" uuid="65841671-29bf-4676-a4b8-a2645864269c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Статистика по складу на период:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="378" y="53" width="100" height="20" uuid="38083dfe-d19f-49d4-bd3b-ab90d88f0419"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="89" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" style="table" x="64" y="28" width="360" height="50" uuid="f751a863-4d4e-457e-99a7-32c130e18b41"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="DataOne" uuid="602b7dbb-08cb-46d1-baf1-0b5226ea4377">
+						<datasetParameter name="REPORT_DATA_SOURCE">
+							<datasetParameterExpression><![CDATA[$P{products}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:column width="90" uuid="9a8d55b5-2f93-4034-bb90-f2e6b992fa74">
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b62fcf77-3a1b-482d-b3bc-215699bef1c7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true" isItalic="false"/>
+								</textElement>
+								<text><![CDATA[Наименование]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="15" uuid="1e40993f-ec72-4366-b8ed-26d5311a7b43"/>
+								<box topPadding="2">
+									<pen lineWidth="0.5" lineStyle="Dotted"/>
+									<topPen lineWidth="0.5" lineStyle="Dotted"/>
+									<leftPen lineWidth="0.5" lineStyle="Dotted"/>
+									<bottomPen lineWidth="0.5" lineStyle="Dotted"/>
+									<rightPen lineWidth="0.5" lineStyle="Dotted"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e2b40368-42e3-4ae9-b7e4-d85fdc4d64ce">
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a34529e2-3bc8-453b-86a3-203c31ee96cb"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Тип]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="15" uuid="978c22f1-4d34-48c2-b03c-a11133826fcc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="28e88ae7-c97b-43c5-942b-bebafc933355">
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a0b4527b-7980-4b0e-a253-5e1de1d66c97"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Мера изм.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="15" uuid="b99ce874-3b70-4879-9a22-67ee42bbc7e7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{measure}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8ee07af6-f88d-4896-8e9a-ccfdf898940b">
+						<jr:columnHeader style="table_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="942c22ea-1f3a-4d1c-b002-e1a3334438dd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Код]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="15" uuid="5f86d5f8-2879-4be0-952c-77f174d4d783"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="167" y="8" width="192" height="20" uuid="62a4730f-c678-4a45-a388-0475143c66cd"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Список зарегистрированной продукции]]></text>
+			</staticText>
+		</band>
+		<band height="174">
+			<pieChart>
+				<chart>
+					<reportElement x="18" y="33" width="247" height="115" uuid="1285581d-7913-4c1d-b3b8-e713fe9a2427"/>
+					<box>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
+						<topPen lineWidth="0.5" lineStyle="Dotted"/>
+						<leftPen lineWidth="0.5" lineStyle="Dotted"/>
+						<bottomPen lineWidth="0.5" lineStyle="Dotted"/>
+						<rightPen lineWidth="0.5" lineStyle="Dotted"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="20">
+					<dataset>
+						<datasetRun subDataset="Countries" uuid="6dc6b181-d066-41a1-a8ed-6d2fcc998013">
+							<datasetParameter name="REPORT_DATA_SOURCE">
+								<datasetParameterExpression><![CDATA[$P{countries}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{name}==null?"No Data":$F{name}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<piePlot isShowLabels="true" isCircular="true">
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="64" y="0" width="192" height="20" uuid="7e77b2fe-4442-4220-a441-6a4b93634878"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Активные страны-поставщики продукции]]></text>
+			</staticText>
+			<pie3DChart>
+				<chart>
+					<reportElement x="304" y="33" width="237" height="115" uuid="db2d971f-56f2-4367-9a98-de7adcbb73c2"/>
+					<box>
+						<pen lineWidth="0.25" lineStyle="Dotted"/>
+						<topPen lineWidth="0.25" lineStyle="Dotted"/>
+						<leftPen lineWidth="0.25" lineStyle="Dotted"/>
+						<bottomPen lineWidth="0.25" lineStyle="Dotted"/>
+						<rightPen lineWidth="0.25" lineStyle="Dotted"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="Workers" uuid="425141a3-d76a-4052-9d3c-767ca7a9fe22">
+							<datasetParameter name="REPORT_DATA_SOURCE">
+								<datasetParameterExpression><![CDATA[$P{positions}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{position}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<staticText>
+				<reportElement x="316" y="0" width="212" height="20" uuid="30d839cd-514c-4dcf-9090-e596864c4e58"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Распределение должностей персонала]]></text>
+			</staticText>
+		</band>
+		<band height="125">
+			<staticText>
+				<reportElement x="149" y="0" width="210" height="20" uuid="3c1a4f3d-3f9c-4ec9-8764-6b5b8047911c"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Количество выполненных работ за период]]></text>
+			</staticText>
+			<barChart>
+				<chart>
+					<reportElement x="134" y="25" width="266" height="100" uuid="bd72df28-d97c-48f5-9f99-9341b582c78b"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="WorkersForOperations" uuid="8178d307-e9bc-4e6d-a6e5-3548a651bfd2">
+							<datasetParameter name="REPORT_DATA_SOURCE">
+								<datasetParameterExpression><![CDATA[$P{workers}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{firstname}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{date}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{count}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+		<band height="179">
+			<pie3DChart>
+				<chart>
+					<reportElement x="25" y="47" width="253" height="99" uuid="ac9e82ec-b3d4-4687-a9a0-f2d595431619"/>
+					<box>
+						<pen lineWidth="0.25" lineStyle="Dotted"/>
+						<topPen lineWidth="0.25" lineStyle="Dotted"/>
+						<leftPen lineWidth="0.25" lineStyle="Dotted"/>
+						<bottomPen lineWidth="0.25" lineStyle="Dotted"/>
+						<rightPen lineWidth="0.25" lineStyle="Dotted"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="10">
+					<dataset>
+						<datasetRun subDataset="DataOne" uuid="0706f815-7836-4116-9af5-1fb12d144bf4">
+							<datasetParameter name="REPORT_DATA_SOURCE">
+								<datasetParameterExpression><![CDATA[$P{area}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{type}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<staticText>
+				<reportElement x="0" y="19" width="278" height="20" uuid="92f33a12-f43f-48f1-82ea-7e2be2268b5f"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Сопоставление типов продукции, находящейся на складе]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="19" width="190" height="20" uuid="725145f3-22ae-4c60-9ee7-46bb36bcff6a"/>
+				<textElement>
+					<font isBold="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Загруженность зон погрузки/разгрузки]]></text>
+			</staticText>
+			<pieChart>
+				<chart>
+					<reportElement x="278" y="47" width="230" height="99" uuid="e915efa5-576d-4432-acf3-cd007d46b50d"/>
+					<box>
+						<pen lineWidth="0.25" lineStyle="Dotted"/>
+						<topPen lineWidth="0.25" lineStyle="Dotted"/>
+						<leftPen lineWidth="0.25" lineStyle="Dotted"/>
+						<bottomPen lineWidth="0.25" lineStyle="Dotted"/>
+						<rightPen lineWidth="0.25" lineStyle="Dotted"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="10">
+					<dataset>
+						<datasetRun subDataset="zones" uuid="b08bac46-9eb3-40f8-9ff5-40d0c177cd69">
+							<datasetParameter name="REPORT_DATA_SOURCE">
+								<datasetParameterExpression><![CDATA[$P{zones}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{name}==null?"No Data":$F{name}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count}]]></valueExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+		<band height="174"/>
+	</detail>
+</jasperReport>
